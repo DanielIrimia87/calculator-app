@@ -3,39 +3,40 @@
 }
 
 body {
-    background:#353434;
-    font-size: 20px;
+    background:rgba(47, 49, 48, 0.5);
+    font-weight: 600;
     color: #ffffff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .calculator {
+    width: 100%;
+    height: auto;
     max-width: 500px;
-    max-height: 500px;
     padding: 20px 0;
     margin: 0 auto;
     display: grid; 
     grid-template-columns: 1fr; 
     grid-template-rows: 0.2fr 3.6fr; 
-    gap: 0px 0px; 
+    gap: 4px; 
     grid-template-areas: 
       "."
       "."; 
 }
 
 .calculator-display {
-  font-size: 30px;
-  font-weight: 600;
-  justify-self: end; 
-  align-self: center; 
+    font-size: 50px;
+    margin-right: 10px;
+    justify-self: end; 
+    align-self: center; 
 }
 
 .calculator-keys {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+    gap: 4px 4px; 
+    grid-template-areas: 
     "all-clear-btn all-clear-btn all-clear-btn operator-btn-divide"
     "btnKeyNr7 btnKeyNr8 btnKeyNr9 operator-btn-multiplay"
     "btnKeyNr4 btnKeyNr5 btnKeyNr6 operator-btn-substract"
@@ -61,6 +62,38 @@ body {
 .decimal-btn { grid-area: decimal-btn; }
 .all-clear-btn { grid-area: all-clear-btn; }
 
+button {
+    font-size: 20px;
+    background: #626262;
+    padding: 20px;
+    margin: 10px 0 10px 10px;
+    color: #e6e6e6;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 0 10px 0 rgb(104 97 97 / 50%);
+    cursor: pointer;
+}
+
+button:hover,
+button:focus {
+    background: #aea9a9;
+}
+
+.all-clear-btn {
+    background:#383838 ;
+}
+
+.operator,
+.equal-sign-btn {
+    background: #f5980a;
+}
+
+.operator:hover,
+.operator:focus,
+.equal-sign-btn:hover,
+.equal-sign-btn:focus {
+    background:#9f6003;
+}
 
 
 
