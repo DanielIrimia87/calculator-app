@@ -1,41 +1,51 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background:rgba(47, 49, 48, 0.5);
-    font-weight: 600;
-    color: #ffffff;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .calculator {
-    width: 100%;
-    height: auto;
-    max-width: 500px;
-    padding: 20px 0;
-    margin: 0 auto;
+    width: 550px;
+    height: 600px;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(58, 56, 56, 0.5);
     display: grid; 
     grid-template-columns: 1fr; 
-    grid-template-rows: 0.2fr 3.6fr; 
+    grid-template-rows: 0.2fr 3.6fr;
     gap: 4px; 
     grid-template-areas: 
-      "."
+      "calculator-display"
       "."; 
 }
 
 .calculator-display {
-    font-size: 50px;
-    margin-right: 10px;
-    justify-self: end; 
     align-self: center; 
+    grid-area: calculator-display; 
+    width: 100%;
+    height: 100px;
+    background-color: #1e1e1e;
+    border-radius: 10px 10px 0 0;
+    font-size: 3rem;
+    text-align: right;
+    padding: 0 20px;
+    line-height: 100px;
+    color: #fff;
 }
 
 .calculator-keys {
+    padding: 10px;
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-    gap: 4px 4px; 
+    gap: 10px 10px; 
     grid-template-areas: 
     "all-clear-btn all-clear-btn all-clear-btn operator-btn-divide"
     "btnKeyNr7 btnKeyNr8 btnKeyNr9 operator-btn-multiplay"
@@ -63,15 +73,16 @@ body {
 .all-clear-btn { grid-area: all-clear-btn; }
 
 button {
-    font-size: 20px;
-    background: #626262;
-    padding: 20px;
-    margin: 10px 0 10px 10px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: #1e1e1e;
     color: #e6e6e6;
     border-radius: 30px;
-    border: none;
-    box-shadow: 0 0 10px 0 rgb(104 97 97 / 50%);
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 45px;
 }
 
 button:hover,
@@ -84,14 +95,15 @@ button:focus {
 }
 
 .operator,
-.equal-sign-btn {
+.equal-btn {
+    font-size: 2em;
     background: #f5980a;
 }
 
 .operator:hover,
 .operator:focus,
-.equal-sign-btn:hover,
-.equal-sign-btn:focus {
+.equal-btn:hover,
+.equal-btn:focus {
     background:#9f6003;
 }
 
