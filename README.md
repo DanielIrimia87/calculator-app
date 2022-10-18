@@ -1,10 +1,13 @@
 # Calculator-app
-
-This project is the Week 4 Assignment of Brainnest Front-End Training. The project is a simple calculator app that can perform basic arithmetic operations.
+## Description
+This project is the Week 4 Assignment of Brainnest Front-End Training.
+The project is a simple calculator app that can perform basic arithmetic operations buil using HTML, CSS and JavaScript.
 
 ## Live Demo
 
-https://danielirimia87.github.io/calculator-app/
+- [Calculator App Project Page](https://danielirimia87.github.io/calculator-app/)
+- [Calculator App](hhttps://application-calculator-app.netlify.app/)
+- [Calculator App Repository](https://github.com/DanielIrimia87/game-rock-paper-or-scissors)
 
 ## Built With
 
