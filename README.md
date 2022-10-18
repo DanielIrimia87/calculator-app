@@ -6,7 +6,7 @@ The project is a simple calculator app that can perform basic arithmetic operati
 ## Live Demo
 
 - [Calculator App Project Page](https://danielirimia87.github.io/calculator-app/)
-- [Calculator App](hhttps://application-calculator-app.netlify.app/)
+- [Calculator App](https://application-calculator-app.netlify.app/)
 - [Calculator App Repository](https://github.com/DanielIrimia87/game-rock-paper-or-scissors)
 
 ## Built With
