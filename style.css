@@ -1,57 +1,85 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 
+ * Completely resets form items
+ * ----------------------------
+ * Super hard reset that removes all borders
+ * and radiuses of all form items (including
+ * checkboxes and radios)
+*/
+
+button {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  appearance: none;
+  text-align: center;
+}
+
+button:hover,
+button:active,
+button:focus {
+  outline: none;
+}
+ 
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+}
+ 
+html {
+  font-size: 175%;
+  font-weight: 300;
+  line-height: 1.3;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  background-image: linear-gradient(236deg, #aecbbc, #373b4a);
+  height: 100vh;
 }
-
+ 
 .calculator {
-    width: 550px;
-    height: 600px;
-    background-color: #2d2d2d;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(58, 56, 56, 0.5);
-    display: grid; 
-    grid-template-columns: 1fr; 
-    grid-template-rows: 0.2fr 3.6fr;
-    gap: 4px; 
-    grid-template-areas: 
-      "calculator-display"
-      "."; 
+  max-width: 550px;
+  max-height: auto;
+  background-color: #2d2d2d;
+  border-radius: 10px;
+  margin: 2em auto;
+  box-shadow: 0 0 10px 0 rgba(58, 56, 56, 0.5);
+  display: grid; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: 0.2fr 3.6fr;
+  gap: 4px; 
+  grid-template-areas: 
+    "calculator-display"
+    "."; 
 }
 
 .calculator-display {
-    align-self: center; 
-    grid-area: calculator-display; 
-    width: 100%;
-    height: 100px;
-    background-color: #1e1e1e;
-    border-radius: 10px 10px 0 0;
-    font-size: 3rem;
-    text-align: right;
-    padding: 0 20px;
-    line-height: 100px;
-    color: #fff;
+  align-self: center; 
+  grid-area: calculator-display; 
+  height: 100px;
+  background-color: #1e1e1e;
+  border-radius: 10px 10px 0 0;
+  font-size: 3rem;
+  text-align: right;
+  padding: 0 20px;
+  line-height: 100px;
+  color: #fff;
 }
 
 .calculator-keys {
-    padding: 10px;
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-    gap: 10px 10px; 
-    grid-template-areas: 
-    "all-clear-btn all-clear-btn all-clear-btn operator-btn-divide"
-    "btnKeyNr7 btnKeyNr8 btnKeyNr9 operator-btn-multiplay"
-    "btnKeyNr4 btnKeyNr5 btnKeyNr6 operator-btn-substract"
-    "btnKeyNr1 btnKeyNr2 btnKeyNr3 operator-btn-plus"
-    "btnKeyNr0 btnKeyNr0 decimal-btn equal-sign-btn"; 
+  padding: 10px;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+  gap: 10px 10px; 
+  grid-template-areas: 
+  "all-clear-btn all-clear-btn all-clear-btn operator-btn-divide"
+  "btnKeyNr7 btnKeyNr8 btnKeyNr9 operator-btn-multiplay"
+  "btnKeyNr4 btnKeyNr5 btnKeyNr6 operator-btn-substract"
+  "btnKeyNr1 btnKeyNr2 btnKeyNr3 operator-btn-plus"
+  "btnKeyNr0 btnKeyNr0 decimal-btn equal-sign-btn"; 
 }
   
 .operator-btn-divide { grid-area: operator-btn-divide; }
@@ -73,38 +101,37 @@ body {
 .all-clear-btn { grid-area: all-clear-btn; }
 
 button {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    background: #1e1e1e;
-    color: #e6e6e6;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    border-radius: 45px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #1e1e1e;
+  color: #e6e6e6;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 45px;
 }
 
 button:hover,
 button:focus {
-    background: #aea9a9;
+  background: #aea9a9;
 }
 
 .all-clear-btn {
-    background:#383838 ;
+  background:#383838 ;
 }
 
 .operator,
 .equal-btn {
-    font-size: 2em;
-    background: #f5980a;
+  font-size: 2em;
+  background: #f5980a;
 }
 
 .operator:hover,
 .operator:focus,
 .equal-btn:hover,
 .equal-btn:focus {
-    background:#9f6003;
+  background:#9f6003;
 }
 
 
