@@ -75,7 +75,7 @@ body {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
   gap: 10px 10px; 
   grid-template-areas: 
-  "all-clear-btn all-clear-btn all-clear-btn operator-btn-divide"
+  "all-clear-btn back-space-btn back-space-btn operator-btn-divide"
   "btnKeyNr7 btnKeyNr8 btnKeyNr9 operator-btn-multiplay"
   "btnKeyNr4 btnKeyNr5 btnKeyNr6 operator-btn-substract"
   "btnKeyNr1 btnKeyNr2 btnKeyNr3 operator-btn-plus"
@@ -99,6 +99,7 @@ body {
 .btnKeyNr0 { grid-area: btnKeyNr0; }
 .decimal-btn { grid-area: decimal-btn; }
 .all-clear-btn { grid-area: all-clear-btn; }
+.back-space-btn { grid-area: back-space-btn; }
 
 button {
   width: 100%;
@@ -117,7 +118,8 @@ button:focus {
   background: #aea9a9;
 }
 
-.all-clear-btn {
+.all-clear-btn,
+.back-space-btn {
   background:#383838 ;
 }
 
@@ -133,9 +135,3 @@ button:focus {
 .equal-btn:focus {
   background:#9f6003;
 }
-
-
-
-
-
-
