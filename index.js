@@ -4,6 +4,7 @@ const operatorsButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.all-clear-btn');
 const equalButton = document.querySelector('.equal-btn');
 const decimalButton = document.querySelector('.decimal-btn');
+const backSpaceButton = document.querySelector('.back-space-btn');
 
 let displayValue = 0;
 let firstValue = null;
@@ -12,6 +13,7 @@ let operator = null;
 let result = 0;
 let waitingForSecondValue = false;
 
+/* Creating an object called calculator, and adding four properties to it. */
 const calculator = {
     add: (num1, num2) => {
         return num1 + num2;
@@ -27,6 +29,8 @@ const calculator = {
     }
 };
 
+/* Destructuring the add, subtract, multiply, 
+and divide properties from the calculator object. */
 const { add, subtract, multiply, divide} = calculator;
 
 /**
@@ -100,6 +104,7 @@ const operate = (operator, num1, num2) => {
  * @returns the result of the operation.
  */
 const handleOperator = (key) => {
+    
     const { value } = key.target;
     if (operator && waitingForSecondValue) {
         operator = value;
@@ -126,8 +131,8 @@ const handleOperator = (key) => {
  * @returns the result of the operation.
  */
 const handleEqual = () => {
-    /* Checking to see if the firstValue or the operator is null. If either of them are null,
-    then it returns. */
+    /* Checking to see if the firstValue is null or undefined. 
+    If it is, then it returns. */
     if (!firstValue || !operator) {
         return;
     }
@@ -166,19 +171,71 @@ const handleDecimal = () => {
     updateDisplay();
 };
 
+/**
+ * It removes the last character from the displayValue string and then updates the display
+ */
+const handleBackSpace = () => {
+    displayValue = displayValue.substr(0, displayValue.length - 1);
+    updateDisplay();
+};
+
+/* Looping through the keysButtons, and adding an event listener to each button
+that have a btnKeys class */
 keysButtons.forEach((key) => {
     key.addEventListener('click', updateDisplayValue);
 });
 
+/* Looping through the operatorsButtons, and adding an event listener to each button 
+that have operator class*/
 operatorsButtons.forEach((operator) => {
     operator.addEventListener('click', handleOperator);
 });
 
+/* Adding event listeners to the equalButton, clearButton,decimalButton and backSpaceButton. */
 equalButton.addEventListener('click', handleEqual);
 clearButton.addEventListener('click', handleClear);
 decimalButton.addEventListener('click', handleDecimal);
+backSpaceButton.addEventListener('click', handleBackSpace);
 
-
-
+/* Add keyboard support! */
+/* Adding an event listener to the window object, and listening for the keydown event. */
+//window.addEventListener('keydown', (e) => {
+    /* If the key that was pressed is a number, then call the updateDisplayValue function. */
+    /* if (e.key === '0' ||
+        e.key === '1' ||
+        e.key === '2' ||
+        e.key === '3' ||
+        e.key === '4' ||
+        e.key === '5' ||
+        e.key === '6' ||
+        e.key === '7' ||
+        e.key === '8' ||
+        e.key === '9'
+        ) {
+        updateDisplayValue(e.key);
+        
+    } */
+    /* If the key that was pressed is a period, then call the handleDecimal function. */
+    i/* f (e.key === ',') {
+        handleDecimal();
+    } */
+    /* If the key that was pressed is a backspace, then call the handleBackSpace function. */
+    /* if (e.key === 'Backspace') {
+        handleBackSpace();
+    } */
+    /* If the key that was pressed is a +, -, *, or /, then call the handleOperator function. */
+    /* if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        handleOperator(e);
+    } */
+    /* If the key that was pressed is a Enter, then call the handleEqual function. */
+    /* if (e.key === 'Enter') {
+        handleEqual();
+    } */
+    /* If the key that was pressed is a Escape, then call the handleClear function. */
+    /* if (e.key === 'Escape') {
+        handleClear();
+    } */
+/* }
+); */
 
 
