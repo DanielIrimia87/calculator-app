@@ -36,7 +36,7 @@ const { add, subtract, multiply, divide} = calculator;
 /**
  * If the displayValue is longer than 10 characters, slice it to 10 characters. If the displayValue is
  * Infinity, NaN, undefined, or null, change it to a string. Otherwise, leave it alone
- */
+*/
 const updateDisplay = () => {
     if (displayValue.length > 10) {
         displayValue = displayValue.slice(0, 10);
@@ -60,7 +60,7 @@ const updateDisplay = () => {
  * was clicked. Otherwise, if the displayValue is 0, then set the displayValue to the value of the key
  * that was clicked. Otherwise, add the value of the key that was clicked to the displayValue
  * @param key - The event object that is passed to the function.
- */
+*/
 const updateDisplayValue = (key) => {
     /* Destructuring the value property from the key.target object. */
     const { value } = key.target;
@@ -79,7 +79,7 @@ const updateDisplayValue = (key) => {
  * @param num1 - The first number
  * @param num2 - the second number entered by the user
  * @returns The result of the operation.
- */
+*/
 const operate = (operator, num1, num2) => {
     if (operator === '+') {
         return add(num1, num2);
@@ -87,7 +87,7 @@ const operate = (operator, num1, num2) => {
         return subtract(num1, num2);
     } else if (operator === 'x') {
         return multiply(num1, num2);
-    } else if (operator === '÷') {
+    } else if (operator === '/') {
         return divide(num1, num2);
     } else {
         return 'Error';
@@ -102,7 +102,7 @@ const operate = (operator, num1, num2) => {
  * operator, then set the first value to the current display value
  * @param key - the event object
  * @returns the result of the operation.
- */
+*/
 const handleOperator = (key) => {
     
     const { value } = key.target;
@@ -124,12 +124,15 @@ const handleOperator = (key) => {
     operator = value;
 };  
 
+
 /**
- * If there is no first value or operator, return; otherwise, set the current value to the result of
- * the operation, update the display, set the first value to the result, set the operator to null, and
- * set waitingForSecondValue to true
+ * If the firstValue is null or undefined, then it returns. 
+ * Otherwise, it sets the result to the value of the operate function. 
+ * It then sets the displayValue to the result, updates the display, 
+ * sets the firstValue to the result, sets the operator to null, 
+ * and sets waitingForSecondValue to true
  * @returns the result of the operation.
- */
+*/
 const handleEqual = () => {
     /* Checking to see if the firstValue is null or undefined. 
     If it is, then it returns. */
@@ -147,7 +150,7 @@ const handleEqual = () => {
 
 /**
  * The handleClear function sets all the variables to their default values.
- */
+*/
 const handleClear = () => {
     displayValue = 0;
     firstValue = null;
@@ -159,10 +162,11 @@ const handleClear = () => {
 };
 
 /**
- * If the displayValue includes a decimal point, do nothing; otherwise, add a decimal point to the
+ * If the displayValue includes a decimal point, do nothing; 
+ * otherwise, add a decimal point to the
  * displayValue and update the display
  * @returns the value of the displayValue variable.
- */
+*/
 const handleDecimal = () => {
     if (displayValue.includes('.')) {
         return;
@@ -171,16 +175,16 @@ const handleDecimal = () => {
     updateDisplay();
 };
 
+
 /**
- * It removes the last character from the displayValue string and then updates the display
+ * It removes the last character from the displayValue string
  */
 const handleBackSpace = () => {
-    displayValue = displayValue.substr(0, displayValue.length - 1);
+    displayValue = displayValue.slice(0, -1);
     updateDisplay();
 };
 
-/* Looping through the keysButtons, and adding an event listener to each button
-that have a btnKeys class */
+/* Add a event listener a click and a keydown for each buttons */
 keysButtons.forEach((key) => {
     key.addEventListener('click', updateDisplayValue);
 });
@@ -198,44 +202,29 @@ decimalButton.addEventListener('click', handleDecimal);
 backSpaceButton.addEventListener('click', handleBackSpace);
 
 /* Add keyboard support! */
-/* Adding an event listener to the window object, and listening for the keydown event. */
-//window.addEventListener('keydown', (e) => {
+/* Add a event listener to the window object, and listen for a keydown event. */
+window.addEventListener('keydown', (event) => {
+    event.target.value = event.key;
     /* If the key that was pressed is a number, then call the updateDisplayValue function. */
-    /* if (e.key === '0' ||
-        e.key === '1' ||
-        e.key === '2' ||
-        e.key === '3' ||
-        e.key === '4' ||
-        e.key === '5' ||
-        e.key === '6' ||
-        e.key === '7' ||
-        e.key === '8' ||
-        e.key === '9'
-        ) {
-        updateDisplayValue(e.key);
-        
-    } */
-    /* If the key that was pressed is a period, then call the handleDecimal function. */
-    i/* f (e.key === ',') {
+    if (event.key >= 0 && event.key <= 9) {
+        updateDisplayValue(event);
+    }
+    else if (event.key === ',') {
         handleDecimal();
-    } */
-    /* If the key that was pressed is a backspace, then call the handleBackSpace function. */
-    /* if (e.key === 'Backspace') {
+    } else if (event.key === 'Backspace') {
         handleBackSpace();
-    } */
-    /* If the key that was pressed is a +, -, *, or /, then call the handleOperator function. */
-    /* if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
-        handleOperator(e);
-    } */
-    /* If the key that was pressed is a Enter, then call the handleEqual function. */
-    /* if (e.key === 'Enter') {
+    } else if (event.key === 'Enter') {
         handleEqual();
-    } */
-    /* If the key that was pressed is a Escape, then call the handleClear function. */
-    /* if (e.key === 'Escape') {
+    } else if (event.key === 'Escape') {
         handleClear();
-    } */
-/* }
-); */
-
-
+    } else if ( event.key === '+' || 
+                event.key === '-' || 
+                event.key === 'x' || 
+                event.key === '/'
+                ) {
+        handleOperator(event);
+    } else {
+        return;
+    }
+});
+    
