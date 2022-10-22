@@ -194,6 +194,7 @@ that have operator class*/
 operatorsButtons.forEach((operator) => {
     operator.addEventListener('click', handleOperator);
 });
+ 
 
 /* Adding event listeners to the equalButton, clearButton,decimalButton and backSpaceButton. */
 equalButton.addEventListener('click', handleEqual);
@@ -227,4 +228,3 @@ window.addEventListener('keydown', (event) => {
         return;
     }
 });
-    
